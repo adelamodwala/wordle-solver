@@ -1,2 +1,2 @@
 # Wordle Solver
-Can we solve wordle algorihmically? Of course!
+Can we solve wordle algorithmically? Of course!
