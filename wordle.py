@@ -6,8 +6,6 @@ Iterate over all the key value pairs in dictionary and call the given
 callback function() on each pair. Items for which callback() returns True,
 add them to the new dictionary. In the end return the new dictionary.
 '''
-
-
 def filterTheDict(dictObj, callback):
     newDict = {}
     # Iterate over all the items in dictionary
@@ -17,16 +15,23 @@ def filterTheDict(dictObj, callback):
             newDict[key] = value
     return newDict
 
+def getRandomWord():
+  return random.choice(list(game_dict))
 
-d_file = open('dictionary_compact.json')
-dict = json.load(d_file)
-print(len(dict))
-game_dict = filterTheDict(dict, lambda elem: len(elem[0]) == 5)
+def getGameDict():
+  d_file = open('dictionary_compact.json')
+  dict = json.load(d_file)
+  print(len(dict))
+  game_dict = filterTheDict(dict, lambda elem: len(elem[0]) == 5)
+  return game_dict
+
+
+game_dict = getGameDict()
 print(len(game_dict))
 print(random.choice(list(game_dict)))
 
 def new_game():
-  word = random.choice(list(game_dict))
+  word = getRandomWord()
   return {
     'word': word,
     'tries': 5,
